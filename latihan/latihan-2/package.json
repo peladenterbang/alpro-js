@@ -1,17 +1,14 @@
 {
-  "name": "tugas-routing-rest-api",
+  "name": "latihan-2",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/express": "^5.0.0",
-    "express": "^4.21.2",
-    "nodemon": "^3.1.7"
+    "express": "^4.21.2"
   }
 }
