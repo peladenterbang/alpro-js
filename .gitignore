@@ -5,3 +5,5 @@ latihan/latihan-2/node_modules/
 latihan/latihan-3/node_modules/
 tugas-middleware-express/node_modules/
 tugas-middleware-express/.env
+tugas-mongodb/.env
+tugas-mongodb/node_modules
