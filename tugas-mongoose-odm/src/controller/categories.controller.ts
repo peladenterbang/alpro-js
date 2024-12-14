@@ -4,7 +4,7 @@ import CategoriesModel from "../models/category.model";
 export default {
     async create(req: Request, res: Response) {
         try {
-            const result = await CategoriesModel.create();
+            const result = await CategoriesModel.create(req.body);
 
             res.status(201).json({
                 data: result,
