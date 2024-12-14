@@ -52,6 +52,24 @@ export default {
         }
     },
 
+    async getProductByCategory (req: Request, res: Response){
+        try {
+          const result = await ProductModel.find({categoryId: req.params.categoryId}).populate("categoryId");
+          console.log(req.params.categoryId)
+          res.status(200).json({
+            data: result,
+            message: `success get product by category`
+          })
+        } catch (error){
+          const err = error as Error
+          res.status(500).json({
+            data: err,
+            message: `failed get product by category`
+          })
+        }
+    
+    },
+
     async update(req: Request, res: Response) {
         try {
             const result = await ProductModel.findOneAndUpdate(

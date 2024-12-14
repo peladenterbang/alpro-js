@@ -53,7 +53,7 @@ export default {
 
   async getProductByCategory (req: Request, res: Response){
     try {
-      const result = await ProductsModel.find({_categoryId: req.params.categoryId}).populate("categoryId");
+      const result = await ProductsModel.find({categoryId: req.params.categoryId}).populate("categoryId");
       res.status(200).json({
         data: result,
         message: `success get product by category`

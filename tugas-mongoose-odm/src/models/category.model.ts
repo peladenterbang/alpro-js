@@ -8,12 +8,16 @@ const CategorySchema = new Schema(
             type: String,
             required: true
         },
+        productCategory: [{
+            type: Schema.Types.ObjectId,
+            ref: "Product"
+        }]
     },
     {
         timestamps: true
     }
 )
 
-const CategoriesModel = mongoose.model("Categories", CategorySchema);
+const CategoriesModel = mongoose.model("Category", CategorySchema);
 
 export default CategoriesModel;
