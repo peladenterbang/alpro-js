@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { string } from "yup";
 
 const Schema = mongoose.Schema;
 
@@ -25,6 +26,10 @@ const productShema = new Schema(
             required: true,
             min: [1, "Quantity can not be less than 1"]
         },
+        slug: {
+            type: String,
+            unique: true
+        },
         categoryId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Category",
@@ -34,6 +39,14 @@ const productShema = new Schema(
         timestamps: true
     }
 )
+
+productShema.pre("save", function (next) {
+    const product = this;
+    if (!product.slug) {
+        product.slug = product.name.toLowerCase().split(" ").join("-");
+    }
+    next();
+});
 
 const ProductModel = mongoose.model("Products", productShema);
 
