@@ -8,3 +8,4 @@ tugas-middleware-express/.env
 tugas-mongodb/.env
 tugas-mongodb/node_modules
 tugas-mongoose-odm/node_modules
+tugas-service-pattern/node_modules
