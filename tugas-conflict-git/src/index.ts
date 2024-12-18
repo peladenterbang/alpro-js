@@ -24,6 +24,9 @@ app.post('/login', (req: Request, res: Response) => {
 });
 
 
+console.log("hallo")
+
+
 app.listen(3000, () => {
     console.log(`server start on port ${port}`);
 })
