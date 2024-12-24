@@ -1,9 +1,16 @@
 import { Request, Response, NextFunction } from "express";
 import { getUserData, IUserToken } from "../utils/jwt";
 
-export interface IRequestWithUser extends Request{
-    user? : IUserToken
-}
+// export interface IRequestWithUser extends Request{
+//     user? : IUserToken
+// }
+
+export interface IRequestWithUser extends Request {
+    user?: {
+      roles: string[];
+      [key: string]: any;
+    };
+  }
 
 export default(req: Request, res: Response, next: NextFunction) => {
     const authorization  = req.headers?.authorization;

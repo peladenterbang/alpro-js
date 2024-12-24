@@ -1,17 +1,18 @@
-import { Response, NextFunction } from "express";
+import { RequestHandler } from "express";
 import { IRequestWithUser } from "./auth.middleware";
 
-export default (roles: string[]) =>
-  (req: IRequestWithUser, res: Response, next: NextFunction) => {
+const rbacMiddleware = (roles: string[]): RequestHandler => {
+  return (req: IRequestWithUser, res, next) => {
     const userRoles = req.user?.roles;
 
     if (!userRoles || !userRoles.some((userRole) => roles.includes(userRole))) {
-      return res.status(403).json({
-        message: "Forbidden",
-      });
+      res.status(403).json({ message: "Forbidden" });
+      return; // Pastikan middleware berhenti di sini.
     }
 
-    next();
+    next(); // Lanjutkan ke middleware berikutnya jika lolos validasi.
   };
+};
 
-  
+export default rbacMiddleware;
+

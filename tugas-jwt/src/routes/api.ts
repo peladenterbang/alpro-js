@@ -8,7 +8,7 @@ import rbacMiddleware from "../middleware/rbac.middleware";
 
 router.post("/auth/login", authController.login);
 router.post("/auth/register", authController.register);
-router.get("/auth/me",[authMiddleware,rbacMiddleware("admin")], authController.me);
+router.post("/auth/me",[authMiddleware, rbacMiddleware(["user"])], authController.me);
 router.put("/auth/update-profile", authMiddleware,authController.updateProfile);
 
 export default router;
