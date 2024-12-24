@@ -7,10 +7,10 @@ const rbacMiddleware = (roles: string[]): RequestHandler => {
 
     if (!userRoles || !userRoles.some((userRole) => roles.includes(userRole))) {
       res.status(403).json({ message: "Forbidden" });
-      return; // Pastikan middleware berhenti di sini.
+      return; 
     }
 
-    next(); // Lanjutkan ke middleware berikutnya jika lolos validasi.
+    next();
   };
 };
 
